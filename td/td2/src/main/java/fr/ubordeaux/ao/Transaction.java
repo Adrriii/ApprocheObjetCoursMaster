@@ -1,25 +1,33 @@
 package fr.ubordeaux.ao;
 
-public class Transaction {
-    private String date;
-    private String title;
-    private double amount;
+import java.util.Date;
 
-    public Transaction(String title, double amount) {
-        //Affecter la date à aujourd'hui
+public class Transaction {
+    private Date date;
+    private String title;
+    private int amount;
+
+    public Transaction(String title, int amount) {
+        this.date = new Date();
         this.title = title;
-        this.amount = amount;
+        
+        if(amount == 0) {
+            this.amount = amount;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
-    public String getDate() {
-        //TODO_2
+    // Il n'existe pas de setter car le concepteur ne veut pas que les transactions soient modifiables 
+    public Date getDate() {
+        return new Date(this.date.toString()); // instanciation d'une nouvelle date pour ne pas modifier la référence obtenue
     }
 
     public String getTitle() {
-        //TODO_2
+        return this.title;
     }
 
-    public double getAmount() {
-        //TODO_2
+    public int getAmount() {
+        return this.amount;
     }
 }
