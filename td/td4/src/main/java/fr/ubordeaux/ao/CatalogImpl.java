@@ -1,4 +1,4 @@
-package fr.ubordeaux.ao;
+package td4.src.main.java.fr.ubordeaux.ao;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class CatalogImpl implements Catalog {
+
     private Map<String, Reference> references;
 
     public CatalogImpl() {
@@ -23,7 +24,9 @@ public class CatalogImpl implements Catalog {
     }
 
     public Reference findReferenceById(String id) {
-        if (!references.containsKey(id)) throw new ReferenceManagementException("cannot find Reference, id unknown !");
+        if (!references.containsKey(id)) {
+            throw new ReferenceManagementException("cannot find Reference, id unknown !");
+        }
         return references.get(id);
     }
 

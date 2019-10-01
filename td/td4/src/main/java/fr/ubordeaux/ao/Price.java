@@ -1,8 +1,9 @@
-package fr.ubordeaux.ao;
+package td4.src.main.java.fr.ubordeaux.ao;
 
 import java.util.Objects;
 
 public class Price {
+
     private int valueInEuroCents;
 
     public Price(int valueInEuroCents) {
@@ -10,7 +11,9 @@ public class Price {
     }
 
     private void setPrice(int valueInEuroCents) {
-        if (valueInEuroCents < 0) throw new ReferenceManagementException("prices are in Euro Cents, and therefore must be positive");
+        if (valueInEuroCents < 0) {
+            throw new ReferenceManagementException("prices are in Euro Cents, and therefore must be positive");
+        }
         this.valueInEuroCents = valueInEuroCents;
     }
 
@@ -20,8 +23,10 @@ public class Price {
 
     @Override
     public boolean equals(Object other) {
-        if (! (other instanceof Price)) return false;
-        return this.valueInEuroCents == ((Price)other).valueInEuroCents;
+        if (!(other instanceof Price)) {
+            return false;
+        }
+        return this.valueInEuroCents == ((Price) other).valueInEuroCents;
     }
 
     @Override
