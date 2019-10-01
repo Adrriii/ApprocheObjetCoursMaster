@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CatalogImpl implements Catalog {
 
@@ -13,6 +15,12 @@ public class CatalogImpl implements Catalog {
     private Map<String, Reference> references;
 
     public CatalogImpl(String name) {
+        Pattern p = Pattern.compile("[a-z]");
+        Matcher m = p.matcher(name);
+        
+        if (name.length() < 3 || name.length() > 10 || !m.find()) {
+            throw new ReferenceManagementException("Catalog name must be alphabetic lowercase between 3 and 10 letters.");
+        }
         this.name = name;
         catalogs = new ArrayList<>();
         references = new HashMap<>();
@@ -56,14 +64,14 @@ public class CatalogImpl implements Catalog {
     public void removeReference(Reference reference) {
         references.remove(reference.getId());
     }
-    
+
     public void addCatalog(Catalog newCatalog) throws ReferenceManagementException {
-        for(Catalog catalog : catalogs) {
-            if(catalog.getName().equals(newCatalog.getName())) {
+        for (Catalog catalog : catalogs) {
+            if (catalog.getName().equals(newCatalog.getName())) {
                 throw new ReferenceManagementException("Cannot add catalog with same name.");
             }
         }
-        
+
         catalogs.add(newCatalog);
     }
 
