@@ -12,6 +12,8 @@ public class Main {
         Contact newContact = new Contact("John", "Do", address);
         contactSet.addContact(newContact);
 
+        TownSet townSet = new TownSet();
+
         System.out.println(SearchEngine.search(contactSet, "john").size()+" contacts found");
     }
 }
