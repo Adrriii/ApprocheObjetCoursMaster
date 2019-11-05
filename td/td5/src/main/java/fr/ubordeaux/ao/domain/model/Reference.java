@@ -20,7 +20,7 @@ public class Reference {
 
     private void setReferenceId(String id) {
         if (id == null) throw new ReferenceManagementException("cannot create reference with null id");
-        if (id.length() != 20) throw new ReferenceManagementException("reference id must have exactly 20 characters");
+        if (id.length() > 20) throw new ReferenceManagementException("reference id must be 20 or less characters");
         if (!id.matches("[A-Za-z0-9]*")) throw new ReferenceManagementException("reference id must be alphanumeric");
         this.id = id;
     }

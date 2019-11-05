@@ -20,21 +20,26 @@ public class Reference {
 
     private void setReferenceId(String id) {
         if (id == null) throw new ReferenceManagementException("cannot create reference with null id");
+        if (id.length() > 20) throw new ReferenceManagementException("reference id must be 20 or less characters");
+        if (!id.matches("[A-Za-z0-9]*")) throw new ReferenceManagementException("reference id must be alphanumeric");
         this.id = id;
     }
 
     private void setName(String name) {
         if (name == null) throw new ReferenceManagementException("cannot create reference with null name");
+        if (name.length() > 20) throw new ReferenceManagementException("reference id must be 20 or less characters");
         this.name = name;
     }
 
     private void setDescription(String description) {
         if (description == null) throw new ReferenceManagementException("cannot create reference with null description");
+        if (description.length() > 200) throw new ReferenceManagementException("reference description must be 200 or less characters");
         this.description = description;
     }
 
     private void setBasePrice(Price basePrice) {
         if (basePrice == null) throw new ReferenceManagementException("cannot create reference with null basePrice");
+        // Price is always positive, check disabled
         this.basePrice = basePrice;
     }
 
