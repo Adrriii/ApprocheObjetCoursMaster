@@ -7,9 +7,9 @@ import java.util.Set;
 import fr.ubordeaux.ao.domain.exception.ReferenceManagementException;
 
 public class Basket {
-    Set<CommandLine> commandLines; 
+    private Set<CommandLine> commandLines; 
 
-    boolean confirmed;
+    private boolean confirmed;
 
     public Basket() {
         commandLines = new HashSet<CommandLine>();
