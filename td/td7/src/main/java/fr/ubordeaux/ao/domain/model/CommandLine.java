@@ -2,11 +2,11 @@ package fr.ubordeaux.ao.domain.model;
 
 import fr.ubordeaux.ao.domain.exception.ReferenceManagementException;
 
-class CommandLine {
+public class CommandLine {
     private Reference reference;
     private int quantity;
 
-    public CommandLine(Reference reference, int quaitity) {
+    public CommandLine(Reference reference, int quantity) {
         this.setReference(reference);
         this.setQuantity(quantity);
     }
@@ -27,5 +27,13 @@ class CommandLine {
 
     public int GetAmount() {
         return this.reference.getBasePrice().getPrice() * this.quantity;
+    }
+
+    public int GetQuantity() {
+        return this.quantity;
+    }
+
+    public String GetReferenceId() {
+        return this.reference.getId();
     }
 }

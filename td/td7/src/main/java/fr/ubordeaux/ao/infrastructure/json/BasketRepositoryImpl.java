@@ -5,30 +5,34 @@ import java.util.Set;
 import fr.ubordeaux.ao.domain.model.BasketRepository;
 import fr.ubordeaux.ao.domain.exception.ReferenceManagementException;
 import fr.ubordeaux.ao.domain.model.Basket;
+import fr.ubordeaux.ao.domain.model.CommandLine;
 
-import org.json;
+import org.json.JSONObject;
 
 public class BasketRepositoryImpl implements BasketRepository {
 
-    public BasketRepositoryImpl() {
-    }
+    JSONObject basket;
 
     @Override
     public Basket getBasket() {
-        // TODO Auto-generated method stub
-        return null;
+        Basket res = new Basket();
+        
+        return res;
     }
 
     @Override
     public void setBasket(Basket basket) {
-        // TODO Auto-generated method stub
+        this.basket = new JSONObject();
+
+        for(CommandLine cl : basket.getCommandLines()) {
+            this.basket.append(cl.GetReferenceId(), cl.GetQuantity());
+        }
 
     }
 
     @Override
     public void unsetBasket() {
-        // TODO Auto-generated method stub
-
+        this.basket = null;
     }
 
 }

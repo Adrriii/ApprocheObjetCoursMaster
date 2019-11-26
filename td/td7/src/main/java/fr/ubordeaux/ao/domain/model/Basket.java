@@ -2,6 +2,7 @@ package fr.ubordeaux.ao.domain.model;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import fr.ubordeaux.ao.domain.exception.ReferenceManagementException;
@@ -41,6 +42,14 @@ public class Basket {
                 break;
             }
         }
+    }
+
+    public Set<CommandLine> getCommandLines() {
+        Set<CommandLine> commands = new HashSet<CommandLine>();
+
+        commands.addAll(this.commandLines);
+
+        return commands;
     }
 
     public int GetAmount() {
