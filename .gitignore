@@ -7,3 +7,6 @@ build.xml
 
 manifest.mf
 /build/
+td/td7/.gradle/
+
+td/td7/.settings/

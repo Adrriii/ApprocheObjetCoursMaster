@@ -6,6 +6,8 @@ import fr.ubordeaux.ao.domain.model.BasketRepository;
 import fr.ubordeaux.ao.domain.exception.ReferenceManagementException;
 import fr.ubordeaux.ao.domain.model.Basket;
 
+import org.json;
+
 public class BasketRepositoryImpl implements BasketRepository {
 
     public BasketRepositoryImpl() {
