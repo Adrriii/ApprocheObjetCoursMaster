@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import fr.ubordeaux.ao.domain.model.Catalog;
 import fr.ubordeaux.ao.domain.model.Reference;
 import fr.ubordeaux.ao.domain.type.Price;
-import fr.ubordeaux.ao.infrastructure.inmemory.CatalogImpl;
+import fr.ubordeaux.ao.infrastructure.json.CatalogImpl;
 
 public class TextualMenu {
     private BufferedReader in;
@@ -63,6 +63,11 @@ public class TextualMenu {
 
         catalog.addReference(reference);
         out.println("Reference ("+refId+") has been created and added to the catalog !");
+
+        CatalogImpl catalog = new CatalogImpl();
+
+        catalog.addReference(reference);
+        catalog.save();
     }
 
 }

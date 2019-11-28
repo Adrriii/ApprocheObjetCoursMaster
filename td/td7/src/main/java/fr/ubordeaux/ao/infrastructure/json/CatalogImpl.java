@@ -1,5 +1,8 @@
 package fr.ubordeaux.ao.infrastructure.json;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -53,5 +56,15 @@ public class CatalogImpl implements Catalog {
 
     public void removeReference(Reference reference) {
         this.catalog.remove(reference.getId());
+    }
+
+    public void save() {
+        try {
+            FileOutputStream stream = new FileOutputStream(new File("j.json"));
+            stream.write(this.catalog.toString().getBytes());
+            stream.close();
+        } catch (IOException e) {
+            
+        }
     }
 }
