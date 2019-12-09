@@ -20,3 +20,5 @@ td/td6/.vscode/
 td/td6/bin/
 
 td/td6/classes/
+
+*.class
